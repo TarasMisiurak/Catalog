@@ -1,0 +1,17 @@
+class Post < ActiveRecord::Base
+	belongs_to :category
+
+	has_attached_file :image, styles: { thumb: "64x64#", small: "100x100#", medium: "350x350#", large: "700x700>" },
+					:url  => "/assets/products/:id/:style/:basename.:extension",
+                  	:path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+
+	validates_attachment_size :image, :less_than => 5.megabytes
+
+	validates :category, presence: true
+
+	validates :title, presence: true, length: { minimum: 5 }
+
+	validates_attachment :image,
+                     content_type: { content_type: ["image/jpeg", "image/png"] }
+
+end

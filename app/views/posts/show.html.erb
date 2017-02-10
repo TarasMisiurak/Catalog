@@ -1,0 +1,19 @@
+<div class="col-sm-11 col-xs-12 blog-content">
+  <%= @post.title %>
+  <h5 class="text-center">Posted on: <%= @post.created_at.strftime('%b %d, %Y') %></h5>
+	<% if @post.image? %>
+	<div class="media">
+		<div class="media-left">
+			<%= link_to image_tag(@post.image.url(:medium), class: 'media-object'), @post.image.url, target: '_blank' %>
+			<%= link_to "Remove image", delete_post_image_path, data: { confirm: 'Are you sure?' } %>
+		</div>
+	</div>
+	<% end %>
+  <div><%= raw @post.body %></div>
+</div>
+
+<%= link_to "Back", posts_path %>
+<%= link_to "Edit", edit_post_path %>
+<%= link_to "Delete", post_path(@post),
+	method: :delete,
+	data: { confirm: 'Are you sure?' } %>

@@ -61,3 +61,7 @@ gem 'cancancan'
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
+gem 'slim-rails'
+
+gem 'paperclip'
+

@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 		@post.category_id = params[:category_id] 
+		@post.user_id = current_user.id
 		if @post.save
 			flash.now[:notice] = "Created a post"
 			redirect_to @post
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
 		@categories = Category.all.map{|c| [ c.name, c.id ] }
 		@post = Post.find_by_id(params[:id])
 		@post.category_id = params[:category_id]
+		@post.user_id = current_user.id
 		if @post.update_attributes(post_params)
 			flash.now[:notice] = "Successfully updated post!"
 			redirect_to post_path(@post)
@@ -62,7 +64,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :body, :image)
+		params.require(:post).permit(:title, :body, :image, :user_id)
 	end
 
 	def find_post

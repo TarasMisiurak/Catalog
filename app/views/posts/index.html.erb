@@ -6,7 +6,7 @@
     <div class="post-content">
       <div class="text-center">
         <h2><%= link_to post.title, post_path(post), style: "color: black" %></h2>
-        <h6>Posted on: <%= post.created_at.strftime('%b %d, %Y') %></h6>
+        <h6>Posted by <%= link_to @user.username, post.user_id %> on: <%= post.created_at.strftime('%b %d, %Y') %></h6>
         <%= link_to Category.find(post.category_id).name, category_path(post.category_id) %>
       </div>
 

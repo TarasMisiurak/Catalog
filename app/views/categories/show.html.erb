@@ -1,0 +1,14 @@
+<div class="wrapper">
+	<div class="container">
+		<h3>Posts under <%= @category.name %> category:</h3>
+		&nbsp;
+		<div class="content-section">
+			<% @posts.each do |post| %>
+			<h5><%= link_to post.title, post_path(post) %></h5>
+			<h6><%= raw(post.body).truncate(150) %></h6>
+			<%= link_to "Read more", post_path(post), class: "btn btn-xs" %>
+			<hr>
+			<% end %>
+		</div>
+	</div>
+</div>

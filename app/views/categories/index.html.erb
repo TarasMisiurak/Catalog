@@ -1,4 +1,11 @@
-<% @categories.each do |category| %>
-<%= category.name %>
-<%= category.desc %>
-<% end %>
+<div class="wrapper">
+	<div class="container">
+		<div class="content-section">
+			<% @categories.each do |category| %>
+			<h4><%= link_to category.name, category_path(category) %></h4>
+			<p><%= category.desc %></p>
+			<hr>
+			<% end %>
+		</div>
+	</div>
+</div>

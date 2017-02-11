@@ -55,6 +55,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  resources :users, :only => [:show]
+
   resources :posts, :categories
 
   get 'posts/:id/delete_image', to: 'posts#delete_image', as: 'delete_post_image'

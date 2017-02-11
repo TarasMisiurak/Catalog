@@ -1,12 +1,11 @@
-<div class="container">
-  <%= link_to "New post", new_post_path, class: "btn btn-default"%>
-  <div class="col-sm-10 col-sm-offset-1 col-xs-12 blog-content">
+<div class="wrapper">
+    <%= link_to "New post", new_post_path, class: "btn btn-default new-post-btn"%>
     <div class="post-container">
     <% @posts.each do |post| %>
     <div class="col-xs-12">
     <div class="post-content">
       <div class="text-center">
-        <h2><%= post.title %></h2>
+        <h2><%= link_to post.title, post_path(post), style: "color: black" %></h2>
         <h6>Posted on: <%= post.created_at.strftime('%b %d, %Y') %></h6>
         <%= link_to Category.find(post.category_id).name, category_path(post.category_id) %>
       </div>
@@ -19,7 +18,7 @@
         <%= link_to "READ MORE", post_path(post), class: "btn btn-sm"%>
       </div>
       <hr>
-      <div>
+      <div class="post-buttons">
         <%= link_to "Edit", edit_post_path(post), class: "btn btn-default btn-sm" %>
         <%= link_to "Delete", post_path(post),
           method: :delete,
@@ -28,7 +27,7 @@
       </div>
       </div>
       <br>
+      &nbsp;
     <% end %>
-    </div>
   </div>
 </div>

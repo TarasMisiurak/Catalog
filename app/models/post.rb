@@ -6,8 +6,8 @@ class Post < ActiveRecord::Base
 	has_many :comments, as: :commentable
 
 	has_attached_file :image, styles: { thumb: "64x64#", small: "100x100#", medium: "350x350#", large: "700x700>" },
-					:url  => "/assets/products/:id/:style/:basename.:extension",
-                  	:path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+					:url  => "/assets/posts/:id/:style/:basename.:extension",
+                  	:path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
 
 	validates_attachment_size :image, :less_than => 5.megabytes
 

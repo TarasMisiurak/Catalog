@@ -14,6 +14,10 @@
 			<% end %>
 			<%= raw @post.body %>
 			<hr>
+			<div class="comment-section-post">
+				<h6>Comments</h6>
+				<%= render partial: "comments/comments", locals: {commentable: @post} %>
+			</div>
 			<div class="show-post-buttons">
 				<%= link_to "Back", posts_path, class: "btn btn-default btn-sm" %>
 				<%= link_to "Edit", edit_post_path, class: "btn btn-default btn-sm" %>

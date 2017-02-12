@@ -63,6 +63,10 @@ Rails.application.routes.draw do
     put :favorite, on: :member
   end
 
+  resources :posts do
+    resources :comments, module: :posts
+  end
+
   get 'posts/:id/delete_image', to: 'posts#delete_image', as: 'delete_post_image'
 
   root 'posts#index'

@@ -45,6 +45,19 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 	end
 
+	def favorite
+		type = params[:type]
+		if type == "favorite"
+			current_user.favorites << @post
+			redirect_to :back, notice: "Added #{@post.title} to favorites"
+		elsif type == "unfavorite"
+			current_user.favorites.delete(@post)
+			redirect_to :back, notice: "Removed #{@post.title} from favorites"
+		else
+			redirect_to :back, notice: "Nothing"
+		end	
+	end
+
 	def destroy
 		if @post.destroy
 			flash.now[:notice] = 'Post deleted!'

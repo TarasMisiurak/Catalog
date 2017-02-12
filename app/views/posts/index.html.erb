@@ -6,10 +6,16 @@
     <div class="post-content">
       <div class="text-center">
         <h2><%= link_to post.title, post_path(post), style: "color: black" %></h2>
+        <div class="favorite-button-index">
+        <% if current_user %>
+          <%= link_to "Remove from favorites", favorite_post_path(post, type: "unfavorite"), method: :put %>
+          <%= link_to "Add to favorites",   favorite_post_path(post, type: "favorite"), method: :put %>
+        <% end %>
+        </div>
         <h6>Posted by <%= link_to post.user.username, post.user %> on: <%= post.created_at.strftime('%b %d, %Y') %></h6>
         <%= link_to Category.find(post.category_id).name, category_path(post.category_id) %>
       </div>
-      
+
       <div class="post-body">
         <%= raw(post.body).truncate(358) %>
       </div>

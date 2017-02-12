@@ -1,16 +1,22 @@
 <div class="wrapper">
 	<div class="container">
 		<div class="content-section">
-			<h3><%= @user.username %> profile</h3>
+			<div class="profile-avatar">
+				<%= link_to image_tag(@user.avatar.url(:medium), class: 'media-object'), @user.avatar.url, class:"img-thumbnail", target: '_blank' %>
+				<h3><%= @user.username %> profile</h3>
+			</div>
 			<hr>
 			<% if @user.first_name.present? %>
-			<h6>First name: <%= @user.first_name %></h6>
+				<h6>First name: <%= @user.first_name %></h6>
 			<% end %>
 			<% if @user.last_name.present? %>
-			<h6>Last name: <%= @user.last_name %></h6>
+				<h6>Last name: <%= @user.last_name %></h6>
 			<% end %>
 			<% if @user.bio.present? %>
-			<h6>About me: <%= @user.bio %></h6>
+				<h6>About me: <%= @user.bio %></h6>
+			<% end %>
+			<% if @user.birthday.present? %>
+				<h6>Birthday: <%= @user.birthday.strftime('%e,%B,%Y') %></h6>
 			<% end %>
 		</div>
 	</div>

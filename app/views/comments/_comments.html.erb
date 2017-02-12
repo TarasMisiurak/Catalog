@@ -1,5 +1,6 @@
 <% commentable.comments.each do |comment| %>
 	<div class="well">
+		<p style="font-size: 12px"><%= link_to comment.user.username, user_path(comment.user) %> on <%= comment.created_at.strftime('%b %d, %Y') %> at <%= comment.created_at.strftime ('%H:%M') %></p>
 		<%= comment.body %>
 	</div>
 <% end %>

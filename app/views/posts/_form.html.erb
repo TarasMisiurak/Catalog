@@ -1,5 +1,4 @@
-<%= link_to "All posts", posts_path %>
-
+<div class="content">
 <%= form_for @post do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -33,22 +32,25 @@
 
   <div class="form-group">
     <p>Add an image</p>
-    <%= f.file_field :image, class: 'form-control' %>
+    <%= f.file_field :image %>
   </div>
-
-  <%= select_tag(:category_id, options_for_select(@categories, @post.category_id), prompt: "Select category") %>
+  <div>
+  <%= select_tag(:category_id, options_for_select(@categories, @post.category_id), { :prompt => "Select category", :class => "btn btn-default" }) %>
+  </div>
+  <br>
 
   <div class="form-group">
     <% if current_page?(new_post_path) %>
-      <%= f.submit "Create Post" %>
+      <%= f.submit "Create Post", class: "btn btn-default" %>
     <% elsif current_page?(edit_post_path) %>
-      <%= f.submit "Update Post" %>
+      <%= f.submit "Update Post", class: "btn btn-default" %>
     <% end %>
   </div>
 <% end %>
 
 <% if current_page?(new_post_path) %>
-  <%= link_to "Back", posts_path %>
+  <%= link_to "Back", posts_path, class: "btn btn-default" %>
 <% elsif current_page?(edit_post_path(@post)) %>
-  <%= link_to "Back to post", post_path(@post) %>
+  <%= link_to "Back to post", post_path(@post), class: "btn btn-default" %>
 <% end %>
+</div>

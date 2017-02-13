@@ -1,9 +1,7 @@
 <div class="wrapper">
-  <% if can? :crud, Post %>
-    <%= link_to "New post", new_post_path, class: "btn btn-default new-post-btn"%>
-    <% end %>
+  <%= link_to "New post", new_post_path, class: "btn btn-default new-post-btn"%>
     <div class="post-container">
-      <% @posts.each do |post| %>
+      <% @user.favorites.each do |post| %>
         <div class="col-xs-12">
           <div class="post-content">
             <div class="text-center">
@@ -17,29 +15,18 @@
                 <div class="post-body">
                   <%= raw(post.body).truncate(358) %>
                 </div>
-                <% if post.body.size > 358 %>
+
                 <div class="text-center">
                   <%= link_to "READ MORE", post_path(post), class: "btn btn-sm"%>
                 </div>
-                <% end %>
                 <hr>
                 <div class="post-buttons">
-                <div class="post-buttons-left" style="float: left">
-                <% if can? :crud, post %>
                   <%= link_to "Edit", edit_post_path(post), class: "btn btn-default btn-sm" %>
                   <%= link_to "Delete", post_path(post),
                     method: :delete,
                     data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm"%>
-                  <% end %>
-                    </div>
                   <div class="post-buttons-right" style="float: right">
-                      <div class="comment-button" style="float: right">
-                        <%= link_to post_path(post, anchor: "comment-section"), class: "btn btn-default btn-sm", title: "Show comments" do %>
-                        <span class="glyphicon glyphicon-comment" style="color: grey"></span>
-                        <%= post.comments.count %>
-                      <% end %>
-                      </div>
-                      <div class="favorite-button" style="float: right">
+                    <div class="favorite-button">
                       <% if current_user %>
                         <% if post.favorited_by.exists?(current_user.id) %>
                           <%= link_to favorite_post_path(post, type: "unfavorite"), method: :put, class: "btn btn-default btn-sm", title: "Remove from favorites" do %>
@@ -51,10 +38,15 @@
                           <% end %>
                         <% end %>
                       <% end %>
+                      <div class="comment-button" style="float: right">
+                        <%= link_to post_path(post, anchor: "comment-section"), class: "btn btn-default btn-sm", title: "Show comments" do %>
+                        <span class="glyphicon glyphicon-comment" style="color: grey"></span>
+                        <%= post.comments.count %>
+                      <% end %>
                       </div>
+                    </div>
                 </div>
             </div>
-            <br>
         </div>
       </div>
     <br>

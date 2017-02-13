@@ -1,0 +1,21 @@
+<div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Favorite posts</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="list-group">
+            <% @favorite_posts.each do |favorite_post| %>
+              <li class="list-group-item">
+                <%= link_to favorite_post.title, post_path(favorite_post) %>
+                  <%= link_to "Remove", favorite_post_path(favorite_post, type: "unfavorite"), method: :put, class: "btn btn-default btn-sm", title: "Remove from favorites", style: "float: right", style: "vertical-align: middle" %>
+              </li>
+              <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>

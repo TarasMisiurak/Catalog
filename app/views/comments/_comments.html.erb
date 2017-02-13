@@ -1,6 +1,23 @@
 <% commentable.comments.each do |comment| %>
 	<div class="well">
-		<p style="font-size: 12px"><%= link_to comment.user.username, user_path(comment.user) %> on <%= comment.created_at.strftime('%b %d, %Y') %> at <%= comment.created_at.strftime ('%H:%M') %></p>
-		<%= comment.body %>
+			<div style="float: left">
+				<%= link_to image_tag(comment.user.avatar.url(:thumb), class: 'media-object img-thumbnail', size: "32x32"), user_path(comment.user) %>
+			</div>
+			<div style="vertical-align: middle">
+				<p style="font-size: 12px"><%= link_to comment.user.username, user_path(comment.user) %> on <%= comment.created_at.strftime('%b %d, %Y') %> at <%= comment.created_at.strftime ('%H:%M') %></p>
+			</div>
+			<br>
+		<div>
+			<%= comment.body %>
+		</div>
+		<br>
+		<% if can? :crud, comment %>
+			<div class="comment-buttons">
+				<%= link_to "Edit", edit_comment_path(comment), class: "btn btn-default btn-xs" %>
+            	<%= link_to "Delete", comment_path(comment),
+                	method: :delete,
+                	data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs"%>
+			</div>
+		<% end %>
 	</div>
 <% end %>

@@ -14,20 +14,24 @@
 			<% end %>
 			<%= raw @post.body %>
 			<hr>
-			<div class="comment-section-post">
+			<% if can? :crud, Comment %>
+			<div id="comment-section" class="comment-section-post">
 				<h6>Add a comment</h6>
 				<%= render partial: "comments/form", locals: {commentable: @post} %>
 			</div>
+			<% end %>
 			<div class="comment-section-post">
 				<h6>Comments</h6>
 				<%= render partial: "comments/comments", locals: {commentable: @post} %>
 			</div>
 			<div class="show-post-buttons">
 				<%= link_to "Back", posts_path, class: "btn btn-default btn-sm" %>
-				<%= link_to "Edit", edit_post_path, class: "btn btn-default btn-sm" %>
-				<%= link_to "Delete", post_path(@post),
-					method: :delete,
-					data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+				<% if can? :crud, @post %>
+					<%= link_to "Edit", edit_post_path, class: "btn btn-default btn-sm" %>
+					<%= link_to "Delete", post_path(@post),
+						method: :delete,
+						data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+				<% end %>
 			</div>
 		</div>
 	</div>

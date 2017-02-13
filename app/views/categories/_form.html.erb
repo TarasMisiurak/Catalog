@@ -1,5 +1,3 @@
-<%= link_to "All posts", posts_path %>
-
 <%= form_for @category do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
@@ -25,10 +23,10 @@
   </div>
 
   <div class="form-group">
-    <% if current_page?('/categories/new') %>
+    <% if current_page?(new_category_path) %>
       <%= f.submit "Create Category" %>
-    <% elsif current_page?('/categories/edit') %>
-      <%= f.submit "Update Category" %>
+    <% elsif current_page?(edit_category_path) %>
+      <%= f.submit "Update Category", class: "btn btn-default" %>
     <% end %>
   </div>
 <% end %>

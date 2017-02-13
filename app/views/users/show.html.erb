@@ -1,11 +1,37 @@
 <div class="wrapper">
 	<div class="container">
 		<div class="content-section">
-			<div class="profile-avatar">
-				<%= link_to image_tag(@user.avatar.url(:medium), class: 'media-object'), @user.avatar.url, class:"img-thumbnail", target: '_blank' %>
-				<h3><%= @user.username %> profile</h3>
+			<div class="profile-top">
+			<div class="row">
+				<div class="col-sm-1">
+					<%= link_to image_tag(@user.avatar.url(:small), class: 'media-object img-thumbnail'), @user.avatar.url %>
+					<% if can? :crud, User %>
+					<div style="text-align: center">
+						<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-avatar">Edit</button>
+					</div>
+					<div id="edit-avatar" class="modal fade" role="dialog">
+					  <div class="modal-dialog">
+					  	<%= render partial: 'users/edit_avatar' %>
+					  </div>
+					</div>
+					<% end %>
+				</div>
+				<div class="col-sm-8">
+					<h3><%= @user.username %> profile</h3>
+				</div>
+				</div>
 			</div>
 			<hr>
+			<% if can? :crud, User %>
+			<div class="favorite-button">
+				<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#favorite-posts"><span class="glyphicon glyphicon-star" style="color: #ffbb33"></span>Favorites</button>
+					<div id="favorite-posts" class="modal fade" role="dialog">
+					  <div class="modal-dialog">
+					  	<%= render partial: 'users/favorites' %>
+					  </div>
+					</div>
+			</div>
+			<% end %>
 			<% if @user.first_name.present? %>
 				<h6>First name: <%= @user.first_name %></h6>
 			<% end %>
@@ -16,8 +42,29 @@
 				<h6>About me: <%= @user.bio %></h6>
 			<% end %>
 			<% if @user.birthday.present? %>
-				<h6>Birthday: <%= @user.birthday.strftime('%e,%B,%Y') %></h6>
+				<h6>Birthday: <%= @user.birthday.strftime('%e %B,%Y') %></h6>
 			<% end %>
+			<hr>
+			<div class="row">
+  				<div class="col-sm-6">
+					<div class="user-posts">
+						<h6>Posts by <%= @user.username %></h6>
+						<div class="list-group">
+							<% @posts.each do |post| %>
+				  			<li class="list-group-item"><%= link_to post.title, post_path(post) %></li>
+				  			<% end %>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="user-comments">
+						<h6>Comments by <%= @user.username %></h6>
+						<div class="list-group">
+							<% @user.comments.each do |comment| %>
+							<div class="well well-sm"><%= link_to comment.body, post_path(comment.commentable_id) %></div>
+							<% end %>
+					</div>
+				</div>
 		</div>
 	</div>
 </div>

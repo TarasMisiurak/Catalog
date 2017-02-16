@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 		@post = Post.find_by_id(params[:id])
 		@post.category_id = params[:category_id]
 		@post.user_id = current_user.id
-		if @post.update_attributes(post_params)
+		if @post.update_attributes(post_params.except(:user_id))
 			flash.now[:notice] = "Successfully updated post!"
 			redirect_to post_path(@post)
 		else
@@ -79,7 +79,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :body, :image, :user_id)
+		params.require(:post).permit(:title, :body, :image, :user_id, :price)
 	end
 
 	def find_post

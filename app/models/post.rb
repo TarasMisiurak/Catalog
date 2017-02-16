@@ -18,4 +18,6 @@ class Post < ActiveRecord::Base
 	validates_attachment :image,
                      content_type: { content_type: ["image/jpeg", "image/png"] }
 
+    #validates :price, numericality: { greater_than: 0 }
+
 end

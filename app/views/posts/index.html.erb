@@ -9,6 +9,7 @@
             <div class="text-center">
               <div class="post-title">
                 <h2 style="text-align: center"><%= link_to post.title, post_path(post), style: "color: black" %></h2>
+                  <h6><%= post.price %></h6>
                   </div>
                   <h6>Posted by <%= link_to post.user.username, post.user %> on: <%= post.created_at.strftime('%b %d, %Y') %></h6>
                   <%= link_to Category.find(post.category_id).name, category_path(post.category_id) %>

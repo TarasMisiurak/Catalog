@@ -73,5 +73,7 @@ Rails.application.routes.draw do
 
   get 'posts/:id/delete_image', to: 'posts#delete_image', as: 'delete_post_image'
 
+  get 'welcome', to: 'pages#welcome' 
+
   root 'posts#index'
 end

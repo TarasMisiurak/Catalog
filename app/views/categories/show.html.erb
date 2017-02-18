@@ -1,10 +1,16 @@
 <div class="wrapper">
 	<div class="container">
 		<h3>Posts under <%= @category.name %> category:</h3>
+		<h6>Showing <%= @posts.count %> posts</h6>
 		&nbsp;
 		<div class="content-section">
 			<% @posts.each do |post| %>
-			<h5><%= link_to post.title, post_path(post) %></h5>
+			<div class="post-image">
+				<% unless post.image.url.present? %>
+					<%= image_tag(post.image.url) %>
+				<% end %>
+			</div>
+			<h5><%= link_to post.title, post_path(post) %>&nbsp;<%= post.price %></h5>
 			<h6><%= raw(post.body).truncate(150) %></h6>
 			<%= link_to "Read more", post_path(post), class: "btn btn-xs" %>
 			<hr>

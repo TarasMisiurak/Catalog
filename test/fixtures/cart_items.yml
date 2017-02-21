@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post_id: 
+  order_id: 
+  unit_price: 9.99
+  quantity: MyString
+  integer: MyString
+  total_price: 9.99
+
+two:
+  post_id: 
+  order_id: 
+  unit_price: 9.99
+  quantity: MyString
+  integer: MyString
+  total_price: 9.99

@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 	
 	def index
 		@posts = Post.order('created_at DESC')
+		@cart_item = current_order.cart_items.new
 	end
 
 	def new

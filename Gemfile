@@ -65,6 +65,5 @@ gem 'slim-rails'
 
 gem 'paperclip'
 
-gem 'cancancan'
 gem 'rolify'
 

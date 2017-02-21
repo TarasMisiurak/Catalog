@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'cart_items/create'
+
+  get 'cart_items/update'
+
+  get 'cart_items/destroy'
+
+  get 'carts/show'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -55,6 +63,9 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  resource :cart, only: [:show]
+  resources :cart_items, only: [:create, :update, :destroy], defaults: { format: 'js' }
+
   resources :users, :only => [:show]
 
   resources :posts, :categories
@@ -72,6 +83,10 @@ Rails.application.routes.draw do
   resources :comments
 
   get 'posts/:id/delete_image', to: 'posts#delete_image', as: 'delete_post_image'
+
+  get 'about', to: 'pages#about'
+
+  get 'contact', to: 'pages#contact'
 
   get 'welcome', to: 'pages#welcome' 
 

@@ -4,4 +4,12 @@ class PagesController < ApplicationController
 		render layout: 'landing'
 	end
 
+	def about
+		render pages: 'about'
+	end
+
+	def contact
+		render pages: 'contact'
+	end
+
 end

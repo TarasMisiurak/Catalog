@@ -12,7 +12,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+    <title>Catalog - Buy &amp; Sell Online</title>
 
     <!-- Bootstrap Core CSS -->
     <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
@@ -47,13 +47,13 @@
                 <a href="#top" onclick=$("#menu-close").click();>Home</a>
             </li>
             <li>
+                <%= link_to "Adverts", posts_path %>
+            </li>
+            <li>
                 <a href="#about" onclick=$("#menu-close").click();>About</a>
             </li>
             <li>
                 <a href="#services" onclick=$("#menu-close").click();>Services</a>
-            </li>
-            <li>
-                <a href="#portfolio" onclick=$("#menu-close").click();>Portfolio</a>
             </li>
             <li>
                 <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
@@ -63,18 +63,22 @@
 
     <!-- Header -->
     <header id="top" class="header">
-        <div class="text-vertical-center">
-            <h1>Catalog</h1>
-            <h3>Buy &amp; Sell Online</h3>
-            <br>
-            <a href="#about" class="btn btn-dark btn-lg">More Info</a>
-            <h6>Or</h6>
-            <% if user_signed_in? %>
-                <%= link_to "Start shopping", posts_path, class: "btn btn-dark btn-lg" %>
-            <% else %>
-                <%= link_to "Log In", new_user_session_path, class: "btn btn-dark btn-lg" %>
-                <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-dark btn-lg" %>
-            <% end %>
+        <div class="landing-background-image">
+            <image class="header-background" src="/assets/images/bg.jpg">
+            <div class="text-vertical-center">
+                <h1>Catalog</h1>
+                <h3>Buy &amp; Sell Online</h3>
+                <br>
+                <a href="#about" class="btn btn-dark btn-lg">More Info</a>
+                <h6>Or</h6>
+                <% if user_signed_in? %>
+                    <%= link_to "Start shopping", posts_path, class: "btn btn-dark btn-lg" %>
+                <% else %>
+                    <%= link_to "Log In", new_user_session_path, class: "btn btn-dark btn-lg" %>
+                    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-dark btn-lg" %>
+                <% end %>
+            </div>
+            </image>
         </div>
     </header>
 

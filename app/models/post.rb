@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
 	has_many :favorite_posts
 	has_many :favorited_by, through: :favorite_posts, source: :user
 	has_many :comments, as: :commentable
+	has_many :cart_items
+
+	default_scope { where(active: true) }
 
 	has_attached_file :image, styles: { thumb: "64x64#", small: "100x100#", medium: "350x350#", large: "700x700>" },
 					:url  => "/assets/posts/:id/:style/:basename.:extension",

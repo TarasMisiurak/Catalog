@@ -11,17 +11,21 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require landing_page
+ *= require landing_media
  *= require_self
  */
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "/font-awesome/css/font-awesome.min.css";
+@import "font-awesome";
 
 body {
   background: #eee !important;  
 }
 
+/*
 .wrapper {  
   margin-top: 20px;
   margin-bottom: 80px;
@@ -43,10 +47,4 @@ body {
 	margin: auto;
 	max-width: 600px;
 }
-
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class*="col-"] {
-        width: 100%;
-    }
-}
+*/

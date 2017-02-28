@@ -4,9 +4,10 @@
     <%= link_to "New post", new_post_path, class: "btn btn-default new-post-btn"%>
     <% end %>
     </div>
-    <div class="post-container">
+
+      <div class="col">
       <% @posts.each do |post| %>
-        <div class="col-xs-4">
+      <div class="post-container">
         <%= form_for @cart_item, remote: true do |f| %>
           <div class="post-content">
             <div class="text-center">
@@ -87,8 +88,7 @@
                 </div>
             </div>
             <br>
-        </div>
-      </div>
+            </div>
     <% end %>
     </div>
 </div>

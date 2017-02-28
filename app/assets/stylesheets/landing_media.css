@@ -1,0 +1,151 @@
+/*==================================================
+=            Bootstrap 3 Media Queries             =
+==================================================*/
+
+    /*==========  Non-Mobile First Method  ==========*/
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+
+        nav {
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff;
+            position: fixed;
+            width: 50%;
+        }
+
+        .logo {
+            padding-top: 150px;
+        }
+
+        .menu_btn {
+            height: 40px;
+            width: 40px;
+            background-color: #0099cc;
+            border-radius: 50%;
+        }
+
+        #top_menu{
+            background-color: #0099cc;
+            padding: 20px 0;
+        }
+        
+        .menu li{
+            display: block;
+            text-align: center;
+        }
+        
+        .menu > li > a{
+            display: block;
+        }
+    
+        .menu > li > a:hover{
+            background-color: #fff;
+            color: #0099cc;
+        }
+
+        .title-block{
+            margin-top: 130px;
+        }
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (max-width : 480px) {
+        nav {
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff;
+            position: fixed;
+            width: 50%;
+        }
+
+        .logo {
+            padding-top: 150px;
+        }
+
+        .menu_btn {
+            height: 40px;
+            width: 40px;
+            background-color: #0099cc;
+            border-radius: 50%;
+        }
+
+        #top_menu{
+            background-color: #0099cc;
+            padding: 20px 0;
+        }
+        
+        .menu li{
+            display: block;
+            text-align: center;
+        }
+        
+        .menu > li > a{
+            display: block;
+        }
+    
+        .menu > li > a:hover{
+            background-color: #fff;
+            color: #0099cc;
+        }
+
+        .title-block{
+            margin-top: 130px;
+        }
+    }
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (max-width : 320px) {
+        nav {
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff;
+            position: fixed;
+            width: 50%;
+        }
+
+        .logo {
+            padding-top: 150px;
+        }
+
+        .menu_btn {
+            height: 40px;
+            width: 40px;
+            background-color: #0099cc;
+            border-radius: 50%;
+        }
+
+        #top_menu{
+            background-color: #0099cc;
+            padding: 20px 0;
+        }
+        
+        .menu li{
+            display: block;
+            text-align: center;
+        }
+        
+        .menu > li > a{
+            display: block;
+        }
+    
+        .menu > li > a:hover{
+            background-color: #fff;
+            color: #0099cc;
+        }
+
+        .title-block{
+            margin-top: 130px;
+        }
+    }

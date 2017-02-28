@@ -67,3 +67,5 @@ gem 'paperclip'
 
 gem 'rolify'
 
+gem 'font-awesome-rails'
+

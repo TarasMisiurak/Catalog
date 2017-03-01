@@ -15,7 +15,8 @@
   width: 100%;
   padding: 20px 35px 30px;
   background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.1);   
+  border: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: 30px;   
 }
 
 .post-content + .post-content {
@@ -35,6 +36,13 @@
 	display: block;
 	float:left;
 	margin: 1% 0 1% 1.6%;
+}
+
+.content {
+	background-color: #fff;
+	padding-left: 20px;
+	padding-bottom: 30px;
+	padding-top: 20px; 
 }
 
 .col:first-child { margin-left: 0; }

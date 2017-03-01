@@ -1,36 +1,34 @@
-<div class="wrapper">
-	<div class="container">
-		<div class="content-section">
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1 col-sm-12 content-section">
 			<div class="profile-top">
-			<div class="row">
-				<div class="col-sm-1">
-					<%= link_to image_tag(@user.avatar.url(:small), class: 'media-object img-thumbnail'), @user.avatar.url %>
-					<% if can? :crud, User %>
-					<div style="text-align: center">
-						<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-avatar">Edit</button>
+				<div class="row">
+					<div class="col-md-2 col-sm-4 col-xs-5">
+						<%= link_to image_tag(@user.avatar.url(:small), class: 'media-object img-thumbnail'), @user.avatar.url %>
+						<% if can? :crud, User %>
+							<button type="button" class="btn btn-primary btn-sm edit-avatar-btn" style="text-align: center" data-toggle="modal" data-target="#edit-avatar">Edit</button>
+						<div id="edit-avatar" class="modal fade" role="dialog">
+				  			<div class="modal-dialog">
+				  				<%= render partial: 'users/edit_avatar' %>
+				  			</div>
+						</div>
+						<% end %>
 					</div>
-					<div id="edit-avatar" class="modal fade" role="dialog">
-					  <div class="modal-dialog">
-					  	<%= render partial: 'users/edit_avatar' %>
-					  </div>
+					<div class="col-md-8 col-sm-8 col-xs-7">
+						<h3><%= @user.username %> profile</h3>
 					</div>
-					<% end %>
-				</div>
-				<div class="col-sm-8">
-					<h3><%= @user.username %> profile</h3>
-				</div>
 				</div>
 			</div>
-			<hr>
+		<hr>
 			<% if can? :crud, User %>
-			<div class="favorite-button">
-				<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#favorite-posts"><span class="glyphicon glyphicon-star" style="color: #ffbb33"></span>Favorites</button>
+				<div class="favorite-button">
+					<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#favorite-posts"><span class="glyphicon glyphicon-star" style="color: #ffbb33"></span>Favorites</button>
 					<div id="favorite-posts" class="modal fade" role="dialog">
-					  <div class="modal-dialog">
-					  	<%= render partial: 'users/favorites' %>
-					  </div>
+				  		<div class="modal-dialog">
+				  			<%= render partial: 'users/favorites' %>
+				  		</div>
 					</div>
-			</div>
+				</div>
 			<% end %>
 			<% if @user.first_name.present? %>
 				<h6>First name: <%= @user.first_name %></h6>
@@ -44,9 +42,9 @@
 			<% if @user.birthday.present? %>
 				<h6>Birthday: <%= @user.birthday.strftime('%e %B,%Y') %></h6>
 			<% end %>
-			<hr>
+		<hr>
 			<div class="row">
-  				<div class="col-sm-6">
+					<div class="col-sm-6">
 					<div class="user-posts">
 						<h6>Posts by <%= @user.username %></h6>
 						<div class="list-group">
@@ -63,8 +61,10 @@
 							<% @user.comments.each do |comment| %>
 							<div class="well well-sm"><%= link_to comment.body, post_path(comment.commentable_id) %></div>
 							<% end %>
+						</div>
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
 </div>

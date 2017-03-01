@@ -1,13 +1,17 @@
-<div class="wrapper">
-<div class="new-post-btn">
-  <% if can? :crud, Post %>
-    <%= link_to "New post", new_post_path, class: "btn btn-default new-post-btn"%>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1 col-md-offset-11 col-sm-3 col-sm-offset-9">
+      <div class="new-post-btn">
+        <% if can? :crud, Post %>
+          <%= link_to "New post", new_post_path, class: "btn btn-default new-post-btn"%>
+          <% end %>
+      </div>
     </div>
+  </div>
 
-      <div class="col">
+      <div class="row post-row">
       <% @posts.each do |post| %>
-      <div class="post-container">
+      <div class="col-lg-4 col-md-6 col-sm-12 post-col">
         <%= form_for @cart_item, remote: true do |f| %>
           <div class="post-content">
             <div class="text-center">
@@ -84,11 +88,12 @@
                       <% end %>
                     <!-- form_for cart_item -->
                     <% end %>
-                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
             <br>
+            </div>
             </div>
     <% end %>
     </div>
-</div>
+    </div>

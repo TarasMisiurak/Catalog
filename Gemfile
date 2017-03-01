@@ -69,3 +69,5 @@ gem 'rolify'
 
 gem 'font-awesome-rails'
 
+gem 'activeadmin', github: 'activeadmin'
+

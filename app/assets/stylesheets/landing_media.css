@@ -17,7 +17,7 @@
     /* Small Devices, Tablets */
     @media only screen and (max-width : 768px) {
 
-        nav {
+        nav .landing-navbar {
             height: 50px;
             line-height: 50px;
             background-color: #fff;
@@ -62,7 +62,7 @@
 
     /* Extra Small Devices, Phones */ 
     @media only screen and (max-width : 480px) {
-        nav {
+        nav .landing-navbar {
             height: 50px;
             line-height: 50px;
             background-color: #fff;
@@ -107,7 +107,7 @@
 
     /* Custom, iPhone Retina */ 
     @media only screen and (max-width : 320px) {
-        nav {
+        nav .landing-navbar {
             height: 50px;
             line-height: 50px;
             background-color: #fff;

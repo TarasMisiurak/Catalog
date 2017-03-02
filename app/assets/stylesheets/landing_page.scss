@@ -246,7 +246,7 @@ header {
 	background-size: cover;
 }
 
-nav .landing-navbar {
+.landing-navbar {
 	height: 100px;
 	line-height: 100px;
 	position: absolute;
@@ -358,6 +358,10 @@ nav .landing-navbar {
 .more-info .right-text-block {
 	margin-top: 100px;
 	margin-bottom: 50px;
+}
+
+.more-info .bottom-row .right-col {
+	float: right;
 }
 
 /* Section Screenshots */
@@ -473,7 +477,7 @@ nav .landing-navbar {
 	text-align: center;
 }
 
-.statistics .content {
+.statistics .row {
 	padding-top: 80px;
 }
 

@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1 col-sm-12 post-content">
+		<div class="col-md-12 col-sm-12 post-content">
 			<div class="post-header">
 			<h1><%= @post.title %></h1>
 			<h5><%= @post.category.name %> by <%= link_to @post.user.username, user_path(@post.user) %></h5>
@@ -9,7 +9,7 @@
 			<hr>
 			<% if @post.image? %>
 				<div class="media">
-					<div class="media-left">
+					<div class="media-center">
 						<%= link_to image_tag(@post.image.url(:medium), class: 'media-object'), @post.image.url, class:"img-rounded", target: '_blank' %>
 						<%= link_to "Remove image", delete_post_image_path, data: { confirm: 'Are you sure?' } %>
 					</div>
